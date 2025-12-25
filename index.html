@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio _Exsi390</title>
+    <link rel="icon" type="image/png" href="https://i.imgur.com/TehNeqF.png">
+    
+    <style>
+      /* ---- Baza i tło ---- */
+      * { box-sizing: border-box; }
+      html, body { height: 100%; margin: 0; overflow-x: hidden; }
+      body {
+        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        color: #0d1b0f;
+        --g1: #c9f6c3; --g2: #74d680; --g3: #30a66b;
+        background: radial-gradient(40vmax 40vmax at 15% 20%, rgba(255,255,255,.45), transparent 60%),
+                    linear-gradient(135deg, var(--g1), var(--g2) 45%, var(--g3));
+        background-attachment: fixed;
+      }
+
+      .wrap {
+        min-height: 100%;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+      }
+
+      /* Karta główna */
+      .card {
+        width: min(1000px, 95vw);
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255,255,255,0.6);
+        border-radius: 30px;
+        box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+        padding: clamp(20px, 4vw, 40px);
+        transition: all 0.5s ease;
+      }
+
+      /* System widoków */
+      .view { display: none; opacity: 0; transform: translateY(20px); transition: all 0.5s ease; }
+      .view.active { display: block; opacity: 1; transform: translateY(0); }
+      .view-flex.active { display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; align-items: center; }
+
+      /* Elementy tekstowe */
+      h1 { text-transform: uppercase; font-weight: 900; margin: 0; line-height: 1.1; }
+      .blue-link {
+        color: #007bff;
+        text-decoration: underline;
+        font-size: 1.4rem;
+        font-weight: bold;
+        display: block;
+        margin: 15px 0;
+        transition: color 0.3s;
+      }
+      .blue-link:hover { color: #0056b3; }
+
+      /* Główka skina */
+      .mini-head {
+        width: 48px;
+        height: 48px;
+        image-rendering: pixelated;
+        vertical-align: middle;
+      }
+
+      /* Widok 1: Start */
+      .view-start { text-align: center; }
+      .skin-img-large { width: 180px; image-rendering: pixelated; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2)); }
+
+      /* Widok 2: Skills */
+      .skin-display { flex: 1; min-width: 250px; text-align: center; }
+      .content-side { flex: 1.2; min-width: 300px; }
+      .head-img { width: 64px; height: 64px; image-rendering: pixelated; vertical-align: middle; }
+      .skills-list { list-style: none; padding: 0; margin: 20px 0; }
+      .skills-list li { margin-bottom: 10px; padding-left: 20px; position: relative; font-size: 1.1rem; }
+      .skills-list li::before { content: "•"; position: absolute; left: 0; color: #0f7a4f; font-weight: bold; }
+
+      /* Widok 3: Grafiki */
+      .grafiki-container { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; align-items: center; }
+      .column { display: flex; flex-direction: column; gap: 20px; }
+      .center-column { text-align: center; }
+      .thumb { width: 100%; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+      .logo-img { width: 80%; max-width: 220px; margin: 10px auto; }
+
+      /* Widok 4: Pluginy i Kontakt */
+      .centered-view { text-align: center; }
+      .contact-box {
+        background: rgba(0,0,0,0.05);
+        padding: 30px;
+        border-radius: 20px;
+        display: inline-block;
+        margin-top: 20px;
+        text-align: left;
+        font-size: 1.2rem;
+        border: 1px solid rgba(0,0,0,0.05);
+      }
+
+      /* Przyciski */
+      .btn-group { display: flex; gap: 15px; margin-top: 30px; justify-content: center; }
+      .btn {
+        padding: 12px 28px;
+        border-radius: 50px;
+        border: none;
+        background: #0f7a4f;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        text-transform: uppercase;
+        transition: 0.3s;
+      }
+      .btn:hover { transform: translateY(-2px); filter: brightness(1.1); }
+      .btn-secondary { background: #333; }
+
+      @media (max-width: 850px) {
+        .grafiki-container { grid-template-columns: 1fr; }
+        .view-flex.active { flex-direction: column; text-align: center; }
+        .center-column { order: -1; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <section class="card">
+        
+        <div id="v-start" class="view view-start active">
+          <h1>Portfolio</h1>
+          <p style="letter-spacing: 3px; font-weight: bold; opacity: 0.7;">_EXSI390</p>
+          <img src="https://i.imgur.com/K2eMlN6.png" class="skin-img-large" alt="Skin">
+          <div class="btn-group">
+            <button class="btn" onclick="showView('v-skills')">kliknij aby otworzyć portfolio</button>
+          </div>
+        </div>
+
+        <div id="v-skills" class="view view-flex">
+          <div class="skin-display">
+            <img src="https://i.imgur.com/K2eMlN6.png" style="width: 100%; max-width: 250px; image-rendering: pixelated;" alt="Skin">
+          </div>
+          <div class="content-side">
+            <h1>PORTFOLIO <br>_EXSI390</h1>
+            <div style="display: flex; align-items: center; gap: 15px; margin: 20px 0;">
+              <p style="margin:0; font-weight: bold; font-size: 1.2rem;">HEJ, JESTEM EXSI.</p>
+              <img src="https://i.imgur.com/TehNeqF.png" class="head-img" alt="Głowa">
+            </div>
+            <p><strong>CO POTRAFIĘ:</strong></p>
+            <ul class="skills-list">
+              <li>montować</li>
+              <li>robić grafiki na zamówienie</li>
+              <li>potrafię tworzyć banery na lobby</li>
+            </ul>
+            <div class="btn-group" style="justify-content: flex-start;">
+              <button class="btn btn-secondary" onclick="showView('v-start')">Wróć</button>
+              <button class="btn" onclick="showView('v-grafiki')">Dalej</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="v-grafiki" class="view">
+          <div class="grafiki-container">
+            <div class="column">
+              <img src="https://i.imgur.com/VuS84IM.png" class="thumb">
+              <img src="https://i.imgur.com/qhWt37N.png" class="thumb">
+              <img src="https://i.imgur.com/bgWdWHP.png" class="thumb">
+            </div>
+            <div class="column center-column">
+              <h2 style="font-size: 35px; letter-spacing: 5px; margin: 0;">GRAFIKI</h2>
+              <img src="https://i.imgur.com/BGKDRnE.png" class="logo-img">
+              <img src="https://i.imgur.com/PcMGkbH.png" class="logo-img">
+            </div>
+            <div class="column">
+              <img src="https://i.imgur.com/WzOUf9h.png" class="thumb">
+              <img src="https://i.imgur.com/A0wSeXQ.png" class="thumb">
+              <img src="https://i.imgur.com/M6BsqBN.png" class="thumb">
+            </div>
+          </div>
+          <div class="btn-group">
+            <button class="btn btn-secondary" onclick="showView('v-skills')">Wróć</button>
+            <button class="btn" onclick="showView('v-pluginy')">Dalej</button>
+          </div>
+        </div>
+
+        <div id="v-pluginy" class="view centered-view">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 20px;">
+             <h1>MOJE PLUGINY</h1>
+             <img src="https://i.imgur.com/TehNeqF.png" class="mini-head" alt="Głowa">
+          </div>
+          <div style="margin: 40px 0;">
+            <a href="https://cdn.discordapp.com/attachments/1378357370442219641/1378357443184033833/NanoCode-GOD-1.0.jar?ex=694e86e7&is=694d3567&hm=ff4b10edc58438528f67eca0abf6d5918b83694a564cfacf8358a80d45f7c126&" class="blue-link" target="_blank">Plugin na goda</a>
+            <a href="https://cdn.discordapp.com/attachments/1422650368252444682/1422650368503976016/NanoCode-szybkaNoc-1.0.jar?ex=694ed2e7&is=694d8167&hm=fe214b32b1b4bd015d375aaefe7cbb405a931b1cff02c512ac4554c6a628c7ff&" class="blue-link" target="_blank">Plugin szybkaNoc</a>
+          </div>
+          <p style="font-style: italic; opacity: 0.8; max-width: 500px; margin: 0 auto;">
+            Posiadam więcej pluginów, lecz prywatnych przeznaczonych na specjalne serwery.
+          </p>
+          <div class="btn-group">
+            <button class="btn btn-secondary" onclick="showView('v-grafiki')">Wróć</button>
+            <button class="btn" onclick="showView('v-kontakt')">Dalej</button>
+          </div>
+        </div>
+
+        <div id="v-kontakt" class="view centered-view">
+          <h1>KONTAKT</h1>
+          <div class="contact-box">
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="https://i.imgur.com/TehNeqF.png" style="width: 64px; height: 64px; image-rendering: pixelated;" alt="Głowa">
+            </div>
+            <p><strong>Discord:</strong> exsi390</p>
+            <p><strong>Email:</strong> exsi390@gmail.com</p>
+          </div>
+          <div class="btn-group">
+            <button class="btn btn-secondary" onclick="showView('v-pluginy')">Wróć</button>
+            <button class="btn" onclick="location.reload()" style="background: #e74c3c;">Resetuj</button>
+          </div>
+        </div>
+
+      </section>
+    </main>
+
+    <script>
+      function showView(viewId) {
+        const current = document.querySelector('.view.active');
+        const target = document.getElementById(viewId);
+        
+        if(current) {
+          current.style.opacity = '0';
+          current.style.transform = 'translateY(-20px)';
+          setTimeout(() => {
+            current.classList.remove('active');
+            current.style.display = 'none';
+            
+            target.style.display = (viewId === 'v-skills') ? 'flex' : 'block';
+            
+            setTimeout(() => {
+              target.classList.add('active');
+            }, 50);
+          }, 400);
+        }
+      }
+    </script>
+  </body>
+</html>
