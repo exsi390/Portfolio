@@ -144,9 +144,9 @@
             </div>
             <p><strong>CO POTRAFIĘ:</strong></p>
             <ul class="skills-list">
-              <li>montować</li>
-              <li>robić pluginy,strony i grafiki na zamówienie</li>
-              <li>potrafię tworzyć banery na lobby</li>
+              <li>montować filmy</li>
+              <li>robić pluginy, strony i grafiki na zamówienie</li>
+              <li>tworzyć profesjonalne banery na lobby</li>
             </ul>
             <div class="btn-group" style="justify-content: flex-start;">
               <button class="btn btn-secondary" onclick="showView('v-start')">Wróć</button>
@@ -184,17 +184,18 @@
              <h1>MOJE PLUGINY</h1>
              <img src="https://i.imgur.com/TehNeqF.png" class="mini-head" alt="Głowa">
           </div>
+          
           <div style="margin: 40px 0;">
-            <a href="https://cdn.discordapp.com/attachments/1378357370442219641/1378357443184033833/NanoCode-GOD-1.0.jar?ex=694e86e7&is=694d3567&hm=ff4b10edc58438528f67eca0abf6d5918b83694a564cfacf8358a80d45f7c126&" class="blue-link" target="_blank">Plugin na goda</a>
-            <a href="https://cdn.discordapp.com/attachments/1422650368252444682/1422650368503976016/NanoCode-szybkaNoc-1.0.jar?ex=694ed2e7&is=694d8167&hm=fe214b32b1b4bd015d375aaefe7cbb405a931b1cff02c512ac4554c6a628c7ff&" class="blue-link" target="_blank">Plugin szybkaNoc</a>
-            <a href="https://cdn.discordapp.com/attachments/1465672742673187056/1465672743272841308/PSM-Restart-1.0.jar?ex=698c6a9c&is=698b191c&hm=02c3a7c8d3bb15af739f8e5f6af9ae123f7c645fc76795908b11a0e4a6ce03c0&" class="blue-link" target="_blank">Plugin na bezpieczne Restarty</a>
-             <a href="https://cdn.discordapp.com/attachments/1465672742673187056/1465672743272841308/PSM-Restart-1.0.jar?ex=698c6a9c&is=698b191c&hm=02c3a7c8d3bb15af739f8e5f6af9ae123f7c645fc76795908b11a0e4a6ce03c0&" class="blue-link" target="_blank">Plugin na Reporty</a>
+            <a href="https://cdn.discordapp.com/attachments/1378357370442219641/1378357443184033833/NanoCode-GOD-1.0.jar" class="blue-link" target="_blank">Plugin na goda</a>
+            <a href="https://cdn.discordapp.com/attachments/1422650368252444682/1422650368503976016/NanoCode-szybkaNoc-1.0.jar" class="blue-link" target="_blank">Plugin szybkaNoc</a>
+            <a href="https://cdn.discordapp.com/attachments/1465672742673187056/1465672743272841308/PSM-Restart-1.0.jar" class="blue-link" target="_blank">Plugin na bezpieczne Restarty</a>
+            <a href="#" class="blue-link" target="_blank">Plugin na Reporty</a>
           </div>
-          </div>
-          </div>
-          <p style="font-style: italic; opacity: 0.8; max-width: 500px; margin: 0 auto;">
+
+          <p style="font-style: italic; opacity: 0.8; max-width: 500px; margin: 0 auto 20px auto;">
             Posiadam więcej pluginów, lecz prywatnych przeznaczonych na specjalne serwery.
           </p>
+
           <div class="btn-group">
             <button class="btn btn-secondary" onclick="showView('v-grafiki')">Wróć</button>
             <button class="btn" onclick="showView('v-kontakt')">Dalej</button>
@@ -231,16 +232,17 @@
             current.classList.remove('active');
             current.style.display = 'none';
             
+            // Flex dla widoku skills, block dla reszty
             target.style.display = (viewId === 'v-skills') ? 'flex' : 'block';
             
             setTimeout(() => {
               target.classList.add('active');
+              target.style.opacity = '1';
+              target.style.transform = 'translateY(0)';
             }, 50);
           }, 400);
         }
       }
     </script>
   </body>
-
 </html>
-
