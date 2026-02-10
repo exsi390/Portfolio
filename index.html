@@ -36,6 +36,7 @@
         box-shadow: 0 25px 60px rgba(0,0,0,0.15);
         padding: clamp(20px, 4vw, 40px);
         transition: all 0.5s ease;
+        position: relative;
       }
 
       /* System widoków */
@@ -144,9 +145,9 @@
             </div>
             <p><strong>CO POTRAFIĘ:</strong></p>
             <ul class="skills-list">
-              <li>montować filmy</li>
+              <li>montować</li>
               <li>robić pluginy, strony i grafiki na zamówienie</li>
-              <li>tworzyć profesjonalne banery na lobby</li>
+              <li>potrafię tworzyć banery na lobby</li>
             </ul>
             <div class="btn-group" style="justify-content: flex-start;">
               <button class="btn btn-secondary" onclick="showView('v-start')">Wróć</button>
@@ -232,7 +233,6 @@
             current.classList.remove('active');
             current.style.display = 'none';
             
-            // Flex dla widoku skills, block dla reszty
             target.style.display = (viewId === 'v-skills') ? 'flex' : 'block';
             
             setTimeout(() => {
